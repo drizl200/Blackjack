@@ -10,7 +10,7 @@ class card:
         self.my_suit = suit_choice
 
     def value(self): 
-        if self.my_denom in ('A'):
+        if self.my_denom == 'A':
             return 11, 1
         elif self.my_denom in ('K', 'Q', 'J'):
             return 10
@@ -31,25 +31,12 @@ class deck:
 
     def __init__(self, num_of_decks):
         self.shuffle(num_of_decks)
-        self.to_string()
-        self.to_info()
     
     def shuffle(self, num_of_decks):
         for n in range(num_of_decks):
             for i in suit:
                 for j in denom:
-                    temp_card = card(j, i)
-                    self.deck_of_cards.append(temp_card)
-        self.to_string()
-        self.to_info()
-
-    def to_string(self):
-        for card in self.deck_of_cards:
-            self.string_deck.append(card.to_string())
-
-    def to_info(self):
-        for card in self.deck_of_cards:
-            self.info_deck.append(card.info())
+                    self.add_card(j,i)
 
     def get_deck_size(self):
         return len(self.deck_of_cards)
@@ -57,7 +44,13 @@ class deck:
     def clear_deck(self):
         self.deck_of_cards = []
         self.string_deck = []
-        self.info_deck= []
+        self.info_deck = []
+
+    def add_card(self, denom, suit):
+        temp_card = card(denom, suit)
+        self.deck_of_cards.append(temp_card)
+        self.string_deck.append(temp_card.to_string())
+        self.info_deck.append(temp_card.info())
 
     def remove_card(self, card_index):
         del self.deck_of_cards[card_index]
