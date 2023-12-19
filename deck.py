@@ -11,7 +11,7 @@ class card:
 
     def value(self): 
         if self.my_denom == 'A':
-            return 11, 1
+            return 11
         elif self.my_denom in ('K', 'Q', 'J'):
             return 10
         else: 
@@ -46,8 +46,8 @@ class deck:
         self.string_deck = []
         self.info_deck = []
 
-    def add_card(self, denom, suit):
-        temp_card = card(denom, suit)
+    def add_card(self, denom_choice=denom, suit_choice=suit):
+        temp_card = card(denom_choice, suit_choice)
         self.deck_of_cards.append(temp_card)
         self.string_deck.append(temp_card.to_string())
         self.info_deck.append(temp_card.info())

@@ -25,7 +25,7 @@ def hand_test():
 
     print(my_hand.string_hand)
     print(my_deck.get_deck_size())
-    print(my_hand.hand_value)
+    print(my_hand.get_hand_value())
 
 def main():
     hand_test() 
