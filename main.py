@@ -27,8 +27,21 @@ def hand_test():
     print(my_deck.get_deck_size())
     print(my_hand.get_hand_value())
 
+def hand_test_two():
+    my_deck = deck(2)
+    player_1 = player(10000, 10)
+    player_1.player_deal(0, my_deck)
+    player_1.player_deal(0, my_deck)
+    print(player_1.get_player_hand_string(0))
+    player_1.split_hand(0,my_deck)
+
+    
+    print(player_1.player_hands[0].string_hand)
+    print(player_1.player_hands[1].string_hand)
+    print(my_deck.get_deck_size())
+
 def main():
-    hand_test() 
+    hand_test_two() 
 
 if __name__ == "__main__":
     main()

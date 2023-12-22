@@ -58,7 +58,7 @@ class deck:
         del self.info_deck[card_index]
 
     def deal_card(self):
-        card_index = r.randint(0, self.get_deck_size())
+        card_index = r.randint(0, self.get_deck_size()-1)
         card_deal = self.deck_of_cards[card_index]
         self.remove_card(card_index)
         return card_deal
