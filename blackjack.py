@@ -15,6 +15,7 @@ class hand:
         self.cards_in_hand.append(insert_card)   
         self.string_hand.append(insert_card.to_string())  
         self.info_hand.append(insert_card.info())  
+        ### Insert hand_cards into all 3 lists.
 
     def deal_to_hand(self, game_deck:deck):
         temp_card = game_deck.deal_card()
@@ -28,9 +29,6 @@ class hand:
                 return self.hand_value
         else:
             return self.hand_value
-
-    ### Insert hand_cards into all 3 lists.
-
 
 class house_hand(hand):
     def __init__(self, game_deck:deck):
@@ -67,9 +65,6 @@ class player:
         self.cash = cash
         self.cash_unit = cash_unit
 
-    def player_deal(self, game_deck:deck):
-        self.player_hands[0].deal_to_hand(game_deck)
-
     def get_player_hand_string(self, hand_index):
         return self.player_hands[hand_index].string_hand
     
@@ -82,14 +77,17 @@ class player:
     def player_deal(self, hand_index, game_deck:deck):
         self.player_hands[hand_index].deal_to_hand(game_deck)
 
-    def get_player_hand_string(self, hand_index):
-        return self.player_hands[hand_index].string_hand
+    # def player_deal(self, game_deck:deck):
+        #     self.player_hands[0].deal_to_hand(game_deck)
+
+    # def get_player_hand_string(self, hand_index):
+    #     return self.player_hands[hand_index].string_hand
     
-    def get_player_hand_info(self, hand_index):
-        return self.player_hands[hand_index].info_hand
+    # def get_player_hand_info(self, hand_index):
+    #     return self.player_hands[hand_index].info_hand
     
-    def get_player_cards_in_hand(self, hand_index):
-        return self.player_hands[hand_index].cards_in_hand
+    # def get_player_cards_in_hand(self, hand_index):
+    #     return self.player_hands[hand_index].cards_in_hand
 
     def split_hand(self, hand_index, game_deck:deck):
         hand_to_split = self.player_hands.pop(hand_index)
